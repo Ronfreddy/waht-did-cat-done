@@ -8,6 +8,7 @@ public class CatMovement : MonoBehaviour
 {
     private Rigidbody _rigidbody;
     private BoxCollider _boxCollider;
+    private Animator _animator;
     private Vector3 _movement;
 
     [Header("Movement")]
@@ -23,6 +24,7 @@ public class CatMovement : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _boxCollider = GetComponent<BoxCollider>();
+        _animator = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -38,7 +40,12 @@ public class CatMovement : MonoBehaviour
 
         if (_movement != Vector3.zero)
         {
+            _animator.SetBool("isWalking", true);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_movement), 0.15F);
+        }
+        else
+        {
+            _animator.SetBool("isWalking", false);
         }
     }
 
@@ -53,6 +60,7 @@ public class CatMovement : MonoBehaviour
         if (context.performed && IsGrounded())
         {
             _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            _animator.SetTrigger("Jump");
         }
     }
 
