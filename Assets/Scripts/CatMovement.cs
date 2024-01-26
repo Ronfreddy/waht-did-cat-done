@@ -20,6 +20,9 @@ public class CatMovement : MonoBehaviour
     [SerializeField] private float _boxDistance;
     [SerializeField] private LayerMask _groundLayer;
 
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem _walkParticles;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -53,6 +56,15 @@ public class CatMovement : MonoBehaviour
     {
         Vector2 input = context.ReadValue<Vector2>();
         _movement = new Vector3(input.x, 0, input.y);
+
+        if (context.performed)
+        {
+            _walkParticles.Play();
+        }
+        else if (context.canceled)
+        {
+            _walkParticles.Stop();
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)
