@@ -22,6 +22,7 @@ public class CatMovement : MonoBehaviour
 
     [Header("Particles")]
     [SerializeField] private ParticleSystem _walkParticles;
+    [SerializeField] private ParticleSystem _jumpParticles;
 
     private void Awake()
     {
@@ -73,10 +74,10 @@ public class CatMovement : MonoBehaviour
         {
             _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
             _animator.SetTrigger("Jump");
+            _jumpParticles.Play();
         }
     }
 
-    // WHY THIS WORKS WTF
     private bool IsGrounded()
     {
         if(Physics.BoxCast(_boxCollider.bounds.center, _boxSize, Vector3.down, transform.rotation, _boxDistance, _groundLayer))
