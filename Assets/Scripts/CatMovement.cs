@@ -6,14 +6,18 @@ using UnityEngine.InputSystem;
 
 public class CatMovement : MonoBehaviour
 {
-    private Vector3 _movement;
-    private float _speed = 5f;
     private Rigidbody _rigidbody;
     private BoxCollider _boxCollider;
+    private Vector3 _movement;
 
+    [Header("Movement")]
+    [SerializeField] private float _speed = 5f;
+    [SerializeField] private float _jumpForce = 10f;
+
+    [Header("Ground Check")]
     private Vector3 _boxSize;
-    public float _boxDistance;
-    public LayerMask _groundLayer;
+    [SerializeField] private float _boxDistance;
+    [SerializeField] private LayerMask _groundLayer;
 
     private void Awake()
     {
@@ -31,6 +35,11 @@ public class CatMovement : MonoBehaviour
     void Update()
     {
         _rigidbody.velocity = new Vector3(_movement.x * _speed, _rigidbody.velocity.y, _movement.z * _speed);
+
+        if (_movement != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_movement), 0.15F);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -43,7 +52,7 @@ public class CatMovement : MonoBehaviour
     {
         if (context.performed && IsGrounded())
         {
-            _rigidbody.AddForce(Vector3.up * 40f, ForceMode.Impulse);
+            _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
         }
     }
 
