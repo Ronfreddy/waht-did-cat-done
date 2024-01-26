@@ -41,7 +41,7 @@ public class CatMovement : MonoBehaviour
         if (_movement != Vector3.zero)
         {
             _animator.SetBool("isWalking", true);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_movement), 0.15F);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_movement), 0.15f);
         }
         else
         {
