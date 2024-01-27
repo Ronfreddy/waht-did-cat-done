@@ -10,6 +10,7 @@ public class CatMovement : MonoBehaviour
     private BoxCollider _boxCollider;
     private Animator _animator;
     private Vector3 _movement;
+    [HideInInspector] public float _forceDeduction = 5f;
 
     [Header("Movement")]
     [SerializeField] private float _speed = 5f;
@@ -91,10 +92,22 @@ public class CatMovement : MonoBehaviour
         StartCoroutine(SlowDownCoroutine());
     }
 
+    public void PowerUp()
+    {
+        _forceDeduction = 1f;
+        StartCoroutine(PowerUpCoroutine());
+    }
+
     private IEnumerator SlowDownCoroutine()
     {
         yield return new WaitForSeconds(2.0f);
         _speed = 10f;
+    }
+
+    private IEnumerator PowerUpCoroutine()
+    {
+        yield return new WaitForSeconds(10.0f);
+        _forceDeduction = 5f;
     }
 
     private bool IsGrounded()

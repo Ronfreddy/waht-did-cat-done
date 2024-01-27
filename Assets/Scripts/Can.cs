@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatMint : MonoBehaviour
+public class Can : MonoBehaviour
 {
     public AudioClip audioClip;
 
@@ -16,7 +16,7 @@ public class CatMint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.soundManager.PlaySound(audioClip);
-            other.GetComponent<CatMovement>().SlowDown();
+            other.GetComponent<CatMovement>().PowerUp();
             Destroy(gameObject);
         }
     }

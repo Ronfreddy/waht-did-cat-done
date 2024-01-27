@@ -22,10 +22,15 @@ public class DestroyObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // if mouse click & in attack range
         if (Input.GetMouseButtonDown(0) && inRange) 
         {
-            GameObject.Find("HitParticle").GetComponent<ParticleSystem>().Play();
+            GameObject hitParti = GameObject.Find("HitParticle");
+            if(hitParti != null)
+            {
+                hitParti.GetComponent<ParticleSystem>().Play();
+            }
             prop.PlayOneShot(propclip);
             ObjectDestroy();
         }
@@ -36,7 +41,7 @@ public class DestroyObject : MonoBehaviour
     {
         
         
-        Vector3 force = (rb.transform.position - player.transform.position).normalized * breakForce / 5f;
+        Vector3 force = (rb.transform.position - player.transform.position).normalized * breakForce / player.GetComponent<CatMovement>()._forceDeduction;
         rb.AddForce(force,ForceMode.Impulse);
         GameManager.Instance.scoreSystem.AddScore(1);
     }

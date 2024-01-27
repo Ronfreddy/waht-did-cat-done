@@ -5,6 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public bool isMuted = false;
+    public AudioSource sfxSource;
 
     // Start is called before the first frame update
     void Awake()
@@ -52,6 +53,14 @@ public class SoundManager : MonoBehaviour
         {
             isMuted = false;
             AudioListener.volume = 1;
+        }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        if (!isMuted)
+        {
+            sfxSource.PlayOneShot(clip);
         }
     }
 }
