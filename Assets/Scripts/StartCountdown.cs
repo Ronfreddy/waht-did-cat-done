@@ -34,13 +34,17 @@ public class StartCountdown : MonoBehaviour
 
     private IEnumerator StartCountdownCoroutine()
     {
+        GameManager.Instance.soundManager.GetComponent<AudioSource>().Stop();
         yield return new WaitForSeconds(1.0f);
-
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1.0f);
-
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1.0f);
-
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1.0f);
+        GetComponent<AudioSource>().pitch = 1.5f;
+        GetComponent<AudioSource>().Play();
+        GameManager.Instance.soundManager.GetComponent<AudioSource>().Play();
         startUI.SetActive(false);
         playerInput.enabled = true;
         GameManager.Instance.GameStart();
