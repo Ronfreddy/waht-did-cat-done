@@ -9,10 +9,12 @@ public class MuteAudio : MonoBehaviour
     {
         if(mute)
         {
+            GameManager.Instance.soundManager.isMuted = true;
             AudioListener.volume = 0;
         }
         else
         {
+            GameManager.Instance.soundManager.isMuted = false;
             AudioListener.volume = 1;
         }
     }

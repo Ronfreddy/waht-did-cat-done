@@ -23,9 +23,10 @@ public class ButtonFunction : MonoBehaviour
 
     public void StartGAME()
     {
-        SceneManager.LoadScene("EonTestMovement");
         GameManager.Instance.scoreSystem.ResetScore();
         GameManager.Instance.timer.ResetTimer();
+        GameManager.Instance.soundManager.ResetBGM();
+        SceneManager.LoadScene("EonTestMovement");
     }
 
     public void ExitGame()
@@ -50,6 +51,7 @@ public class ButtonFunction : MonoBehaviour
         Time.timeScale = 1.0f;
         GameManager.Instance.timer.ResetTimer();
         GameManager.Instance.ResetGame();
+        GameManager.Instance.soundManager.ResetBGM();
     }
 
     public void ReturnToGame()
