@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4000011139200846}
   - component: {fileID: 33000011386552272}
   - component: {fileID: 23000011084367680}
+  - component: {fileID: 9031150123212082367}
   m_Layer: 0
   m_Name: BathSink
   m_TagString: Untagged
@@ -83,3 +84,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &9031150123212082367
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012476365536}
+  m_Material: {fileID: 13400000, guid: 71a815b490836b64b88f7725299c8216, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3126f881a886f8144bb2e36e85d0c390, type: 3}
