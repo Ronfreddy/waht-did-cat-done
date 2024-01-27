@@ -35,6 +35,7 @@ public class CatMovement : MonoBehaviour
     void Start()
     {
         _boxSize = new Vector3(_boxCollider.size.x * transform.localScale.x, 0.1f, _boxCollider.size.z * transform.localScale.z);
+        GameManager.Instance.cat = this.gameObject;
     }
 
     // Update is called once per frame

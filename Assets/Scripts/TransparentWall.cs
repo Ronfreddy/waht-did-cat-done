@@ -27,7 +27,6 @@ public class TransparentWall : MonoBehaviour
 
         Color color = GetComponent<MeshRenderer>().material.color;
         color.a = _alpha;
-        Debug.Log(color);
         GetComponent<MeshRenderer>().material.color = color;
     }
 

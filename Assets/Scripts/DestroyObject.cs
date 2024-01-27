@@ -12,13 +12,14 @@ public class DestroyObject : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
         // if mouse click & in attack range
-        if (Input.GetMouseButton(0) && inRange) 
+        if (Input.GetMouseButtonDown(0) && inRange) 
         {
             ObjectDestroy();
         }
@@ -29,11 +30,11 @@ public class DestroyObject : MonoBehaviour
     {
         
         
-        Vector3 force = (rb.transform.position - player.transform.position).normalized * breakForce;
+        Vector3 force = (rb.transform.position - player.transform.position).normalized * breakForce / 5f;
         Debug.Log(force.ToString());
-        rb.AddForce(force);
+        rb.AddForce(force,ForceMode.Impulse);
         
-
+        GameManager.Instance.scoreSystem.AddScore(1);
         
     }
 
