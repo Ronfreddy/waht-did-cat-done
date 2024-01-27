@@ -25,4 +25,9 @@ public class ScoreSystem : MonoBehaviour
     {
         score += amount;
     }
+
+    public void ResetScore()
+    {
+        score = 0;
+    }
 }
