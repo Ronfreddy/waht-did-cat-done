@@ -8,6 +8,7 @@ public class UI_MenuPause : MonoBehaviour
 
     public void PauseMenu()
     {
+        if(GameManager.Instance.timer.isEnded) return;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         GetComponent<CatMovement>().enabled = false;

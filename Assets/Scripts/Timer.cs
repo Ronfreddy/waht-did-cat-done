@@ -5,17 +5,15 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private Slider slider;
     [SerializeField] private float timeLimit = 30f;
 
     private float currentTime;
-    private bool isRunning = false;
-    private bool isEnded = false;
+    public bool isRunning = false;
+    public bool isEnded = false;
 
     private void Start()
     {
         GameManager.Instance.timer = this;
-        StartTimer();
     }
 
     private void Update()
@@ -23,7 +21,6 @@ public class Timer : MonoBehaviour
         if (isRunning)
         {
             currentTime -= Time.deltaTime;
-            slider.value = (timeLimit - currentTime) / timeLimit;
             if (currentTime <= 0)
             {
                 isRunning = false;
@@ -48,5 +45,10 @@ public class Timer : MonoBehaviour
     {
         currentTime = timeLimit;
         isRunning = true;
+    }
+
+    public float GetTimePercentage()
+    {
+        return (timeLimit - currentTime) / timeLimit;
     }
 }

@@ -6,6 +6,13 @@ public class GameManager : Singleton<GameManager>
 {
     [HideInInspector] public ScoreSystem scoreSystem;
     [HideInInspector] public Timer timer;
+    [HideInInspector] public GameObject cat;
+
+    //Do not destroy on load
+    protected void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     public void StartGame()
     {
@@ -21,5 +28,10 @@ public class GameManager : Singleton<GameManager>
         {
             Debug.Log("Game Over! Score: " + scoreSystem.GetScore());
         }
+    }
+
+    public void ResetGame()
+    {
+        cat = null;
     }
 }
