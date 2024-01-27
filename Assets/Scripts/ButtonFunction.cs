@@ -22,7 +22,6 @@ public class ButtonFunction : MonoBehaviour
     public void StartGAME()
     {
         SceneManager.LoadScene("EonTestMovement");
-        GameManager.Instance.timer.StartTimer();
     }
 
     public void ExitGame()

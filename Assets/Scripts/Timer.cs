@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private float timeLimit = 30f;
+    public float timeLimit = 30f;
 
-    private float currentTime;
+    private float currentTime = 30f;
     public bool isRunning = false;
     public bool isEnded = false;
+    public bool isEnteringCutscene = false;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class Timer : MonoBehaviour
             {
                 Time.timeScale = 0;
                 isEnded = false;
+                isEnteringCutscene = true;
                 GameManager.Instance.EndGame();
                 return;
             }

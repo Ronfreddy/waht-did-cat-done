@@ -9779,7 +9779,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bcf1563d7dd8df84b9a53fc0afe2b1be, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.27
+      value: -7.53
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bcf1563d7dd8df84b9a53fc0afe2b1be, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9787,7 +9787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bcf1563d7dd8df84b9a53fc0afe2b1be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.23
+      value: -10.63
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bcf1563d7dd8df84b9a53fc0afe2b1be, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9851,6 +9851,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bcf1563d7dd8df84b9a53fc0afe2b1be, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3079238545256179149}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bcf1563d7dd8df84b9a53fc0afe2b1be, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6763123109132192011}
   m_SourcePrefab: {fileID: 100100000, guid: bcf1563d7dd8df84b9a53fc0afe2b1be, type: 3}
 --- !u!1 &6957529361480646848 stripped
 GameObject:
@@ -9983,6 +9986,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 91633643-c866-4ba7-9917-1c401ea6b809
     m_ActionName: CatMovement/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6763123109132192011}
+        m_TargetAssemblyTypeName: UI_MenuPause, Assembly-CSharp
+        m_MethodName: PauseMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2ba47781-e0cb-4784-8657-09c03065faaf
+    m_ActionName: CatMovement/Pause[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: CatMovement
@@ -10008,6 +10027,19 @@ MonoBehaviour:
     m_Bits: 8
   _walkParticles: {fileID: 5996114619064799237}
   _jumpParticles: {fileID: 4725609293055820653}
+--- !u!114 &6763123109132192011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957529361480646848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f59e6a46085c348983ce5eeb164533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
 --- !u!4 &7765838239823813242 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bcf1563d7dd8df84b9a53fc0afe2b1be, type: 3}

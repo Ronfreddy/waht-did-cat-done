@@ -14,7 +14,12 @@ public class GameManager : Singleton<GameManager>
         DontDestroyOnLoad(gameObject);
     }
 
-    public void StartGame()
+    public void StartLevel()
+    {
+
+    }
+
+    public void GameStart()
     {
         if (timer != null)
         {
