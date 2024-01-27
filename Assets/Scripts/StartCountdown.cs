@@ -14,6 +14,8 @@ public class StartCountdown : MonoBehaviour
     [SerializeField] private GameObject endUI;
     [SerializeField] private GameObject cat;
     [SerializeField] private GameObject CGCat;
+    [SerializeField] private AudioSource readySound;
+    [SerializeField] private AudioSource endSound;
 
     // Start is called before the first frame update
     void Start()
@@ -36,14 +38,14 @@ public class StartCountdown : MonoBehaviour
     {
         GameManager.Instance.soundManager.GetComponent<AudioSource>().Stop();
         yield return new WaitForSeconds(1.0f);
-        GetComponent<AudioSource>().Play();
+        readySound.Play();
         yield return new WaitForSeconds(1.0f);
-        GetComponent<AudioSource>().Play();
+        readySound.Play();
         yield return new WaitForSeconds(1.0f);
-        GetComponent<AudioSource>().Play();
+        readySound.Play();
         yield return new WaitForSeconds(1.0f);
-        GetComponent<AudioSource>().pitch = 1.5f;
-        GetComponent<AudioSource>().Play();
+        readySound.pitch = 1.5f;
+        readySound.Play();
         GameManager.Instance.soundManager.GetComponent<AudioSource>().Play();
         startUI.SetActive(false);
         playerInput.enabled = true;
@@ -55,6 +57,7 @@ public class StartCountdown : MonoBehaviour
         playerInput.enabled = false;
         timeOutAnim.SetActive(true);
         HUD.SetActive(false);
+        endSound.Play();
         yield return new WaitForSeconds(1.0f);
         timeOutAnim.SetActive(false);
         CGCat.SetActive(true);

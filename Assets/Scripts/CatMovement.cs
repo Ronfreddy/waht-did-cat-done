@@ -79,6 +79,24 @@ public class CatMovement : MonoBehaviour
         }
     }
 
+    public void GoBackSpawn()
+    {
+        this.transform.position = GameObject.Find("SpawnPoint").transform.position;
+        GetComponent<BoxCollider>().enabled = true;
+    }
+
+    public void SlowDown()
+    {
+        _speed = 2f;
+        StartCoroutine(SlowDownCoroutine());
+    }
+
+    private IEnumerator SlowDownCoroutine()
+    {
+        yield return new WaitForSeconds(2.0f);
+        _speed = 10f;
+    }
+
     private bool IsGrounded()
     {
         if(Physics.BoxCast(_boxCollider.bounds.center, _boxSize, Vector3.down, transform.rotation, _boxDistance, _groundLayer))
