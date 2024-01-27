@@ -33,7 +33,7 @@ public class DestroyObject : MonoBehaviour
         Debug.Log(force.ToString());
         rb.AddForce(force);
         
-
+        GameManager.Instance.scoreSystem.AddScore(1);
         
     }
 
