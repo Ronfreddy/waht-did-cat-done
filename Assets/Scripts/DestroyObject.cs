@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ public class DestroyObject : MonoBehaviour
 {
     public float breakForce;
     public GameObject player;
+    public AudioSource prop;
+    public AudioClip propclip;
+
     private bool inRange = false;
     private Rigidbody rb;
     // Start is called before the first frame update
@@ -21,6 +25,7 @@ public class DestroyObject : MonoBehaviour
         // if mouse click & in attack range
         if (Input.GetMouseButtonDown(0) && inRange) 
         {
+            prop.PlayOneShot(propclip);
             ObjectDestroy();
         }
  
