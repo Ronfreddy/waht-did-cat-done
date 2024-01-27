@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
 {
     public float timeLimit = 30f;
 
-    private float currentTime = 30f;
+    public float currentTime = 30f;
     public bool isRunning = false;
     public bool isEnded = false;
     public bool isEnteringCutscene = false;
@@ -45,6 +45,7 @@ public class Timer : MonoBehaviour
 
     public void StartTimer()
     {
+        Debug.Log("Timer started");
         currentTime = timeLimit;
         isRunning = true;
     }
@@ -52,5 +53,13 @@ public class Timer : MonoBehaviour
     public float GetTimePercentage()
     {
         return (timeLimit - currentTime) / timeLimit;
+    }
+
+    public void ResetTimer()
+    {
+        currentTime = timeLimit;
+        isRunning = false;
+        isEnded = false;
+        isEnteringCutscene = false;
     }
 }

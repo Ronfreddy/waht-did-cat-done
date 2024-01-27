@@ -31,11 +31,8 @@ public class DestroyObject : MonoBehaviour
         
         
         Vector3 force = (rb.transform.position - player.transform.position).normalized * breakForce / 5f;
-        Debug.Log(force.ToString());
         rb.AddForce(force,ForceMode.Impulse);
-        
         GameManager.Instance.scoreSystem.AddScore(1);
-        
     }
 
     private void OnTriggerEnter(Collider other)

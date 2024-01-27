@@ -87,7 +87,6 @@ public class CatMovement : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not Grounded");
             return false;
         }
     }

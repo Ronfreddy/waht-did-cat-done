@@ -13,10 +13,7 @@ public class ScoreSystem : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            AddScore(1);
-        }
+        
     }
 
     public int GetScore()

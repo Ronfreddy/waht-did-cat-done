@@ -33,6 +33,7 @@ public class ButtonFunction : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1.0f;
+        GameManager.Instance.timer.ResetTimer();
         GameManager.Instance.ResetGame();
     }
 
