@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class DestroyObject : MonoBehaviour
 {
-    public GameObject fractured;
     public float breakForce;
+    public GameObject player;
+    private bool inRange = false;
+    private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        //Empty
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        // if mouse click & in attack range
+        if (Input.GetMouseButton(0) && inRange) 
         {
             ObjectDestroy();
         }
@@ -24,13 +27,30 @@ public class DestroyObject : MonoBehaviour
 
     void ObjectDestroy()
     {
-        GameObject frac =Instantiate(fractured, transform.position, transform.rotation);
-        foreach (Rigidbody rb in frac.GetComponentsInChildren<Rigidbody>())
-        {
-            Vector3 force = (rb.transform.position - transform.position).normalized * breakForce;
-            rb.AddForce(force);
-        }
+        
+        
+        Vector3 force = (rb.transform.position - player.transform.position).normalized * breakForce;
+        Debug.Log(force.ToString());
+        rb.AddForce(force);
+        
 
-        Destroy(gameObject);
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            inRange = true;
+        }
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            inRange = false;
+        }
     }
 }
