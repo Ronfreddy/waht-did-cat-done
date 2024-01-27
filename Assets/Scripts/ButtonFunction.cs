@@ -21,7 +21,7 @@ public class ButtonFunction : MonoBehaviour
 
     public void StartGAME()
     {
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("EonTestMovement");
     }
 
     public void ExitGame()
@@ -38,5 +38,6 @@ public class ButtonFunction : MonoBehaviour
     {
         pausemenu.SetActive(false);
         Time.timeScale = 1.0f;
+        GameObject.Find("FunctionedCat").GetComponent<CatMovement>().enabled = true;
     }
 }

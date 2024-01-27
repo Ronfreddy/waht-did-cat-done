@@ -1,36 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    private float timeStart;
-    public bool timerRunning = false;
+    [SerializeField] private Slider slider;
+    [SerializeField] private float timeLimit = 30f;
 
-    [SerializeField] private float timeLimit = 60f;
+    private float currentTime;
+    private bool isRunning = false;
+    private bool isEnded = false;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        // Starts the timer automatically
-        timerRunning = true;
-        timeStart = Time.time;
+        GameManager.Instance.timer = this;
+        StartTimer();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        // Slow down the game when the timer is up
-        if(Time.time >= timeStart + timeLimit && Time.timeScale > 0.1f)
+        if (isRunning)
         {
-            timerRunning = false;
+            currentTime -= Time.deltaTime;
+            slider.value = (timeLimit - currentTime) / timeLimit;
+            if (currentTime <= 0)
+            {
+                isRunning = false;
+                isEnded = true;
+            }
+        }
+
+        if (isEnded)
+        {
+            if (Time.timeScale <= 0.1f)
+            {
+                Time.timeScale = 0;
+                isEnded = false;
+                GameManager.Instance.EndGame();
+                return;
+            }
             Time.timeScale -= 0.7f * Time.deltaTime;
-            Debug.Log(Time.timeScale);
         }
-        else if(Time.timeScale <= 0.1f)
-        {
-            Time.timeScale = 0;
-        }
+    }
+
+    public void StartTimer()
+    {
+        currentTime = timeLimit;
+        isRunning = true;
     }
 }
