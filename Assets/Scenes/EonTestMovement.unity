@@ -13068,19 +13068,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6957529361480646848, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
   m_PrefabInstance: {fileID: 6367831394272693130}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1129729048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1129729041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60f59e6a46085c348983ce5eeb164533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1761368262}
 --- !u!114 &1129729051 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9086664823190589956, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
@@ -23705,57 +23692,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9086664823190589956, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9086664823190589956, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9086664823190589956, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
-      value: 2ba47781-e0cb-4784-8657-09c03065faaf
-      objectReference: {fileID: 0}
-    - target: {fileID: 9086664823190589956, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
-      value: CatMovement/Pause[/Keyboard/r]
-      objectReference: {fileID: 0}
-    - target: {fileID: 9086664823190589956, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9086664823190589956, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9086664823190589956, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    - target: {fileID: 8844921715656251223, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
+      propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 1129729048}
-    - target: {fileID: 9086664823190589956, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9086664823190589956, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PauseMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 9086664823190589956, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UI_MenuPause, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9086664823190589956, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1761368262}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6957529361480646848, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1129729048}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce3157d09a370c7459cd20fa77cc4517, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

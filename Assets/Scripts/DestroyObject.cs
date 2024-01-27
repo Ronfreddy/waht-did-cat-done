@@ -25,6 +25,7 @@ public class DestroyObject : MonoBehaviour
         // if mouse click & in attack range
         if (Input.GetMouseButtonDown(0) && inRange) 
         {
+            GameObject.Find("HitParticle").GetComponent<ParticleSystem>().Play();
             prop.PlayOneShot(propclip);
             ObjectDestroy();
         }
