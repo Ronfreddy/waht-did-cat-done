@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class ButtonFunction : MonoBehaviour
 {
     public GameObject pausemenu;
+    public GameObject mainmenu;
+    public GameObject guidemenu;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,17 @@ public class ButtonFunction : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+    public void Control()
+    {
+        mainmenu.SetActive(false);
+        guidemenu.SetActive(true);
+    }
+
+    public void ReturnMain()
+    {
+        guidemenu.SetActive(false);
+        mainmenu.SetActive(true);
     }
 
     public void ReturnToMainMenu()
